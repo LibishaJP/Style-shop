@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Clothes Printing E-commerce Design System 
+Unique color palette with minty cyan to electric violet gradient
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Custom Brand Colors - Updated Palette */
+
+  --primary-gradient-start: 344 52% 65%; /* #cc6699 onion pink */
+  --primary-gradient-end: 249 34% 47%;   /* #2f284e dark purple */
+  --accent: 330 100% 70%;                /* #ff7ab6 vibrant pink */
+  --button-hover: 320 46% 65%;           /* slightly darker pink */
+  --highlight: 253 29% 65%;              /* #8e82c9 violet tint */
+  --neutral-dark: 249 34% 47%;           /* #2f284e dark purple */
+  --neutral-light: 344 45% 90%; /* soft onion pink background */
+  --success: 170 77% 56%;                /* #2dd4bf teal */
+  --error: 0 79% 70%;                    /* #ff6b6b red */
+
+
+    /* Semantic Colors */
+    --background: 316 52% 97%; /* neutral light pink */
+    --foreground: 249 34% 47%; /* neutral dark purple */
+
+    --card: 0 0% 100%;
+    --card-foreground: 249 34% 47%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 249 34% 47%;
+
+    --primary: 316 52% 89%; /* primary gradient start - light pink */
+    --primary-foreground: 249 34% 47%; /* dark purple text */
+
+    --secondary: 316 30% 95%;
+    --secondary-foreground: 249 34% 47%;
+
+    --muted: 316 20% 94%;
+    --muted-foreground: 249 20% 60%;
+
+    --accent-color: 253 29% 65%; /* violet tint highlight */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 79% 70%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success-color: 170 77% 56%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 174 88% 44%;
+
+    --radius: 0.75rem;
+
+    /* Custom Gradients */
+    --gradient-primary: linear-gradient(90deg, hsl(var(--primary-gradient-start)), hsl(var(--primary-gradient-end)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary-gradient-end)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-gradient-start)), hsl(var(--primary-gradient-end)), hsl(var(--accent)));
+
+    /* Animation Variables */
+    --animation-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --animation-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --duration-fast: 0.2s;
+    --duration-normal: 0.3s;
+    --duration-slow: 0.5s;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 249 34% 12%; /* dark purple background */
+    --foreground: 344 52% 65%; /* #cc6699 onion pink text */
+
+
+    --card: 249 34% 15%;
+    --card-foreground: 316 52% 97%;
+
+    --popover: 249 34% 15%;
+    --popover-foreground: 316 52% 97%;
+
+    --primary: 316 52% 89%;
+    --primary-foreground: 249 34% 47%;
+
+    --secondary: 249 30% 20%;
+    --secondary-foreground: 316 52% 97%;
+
+    --muted: 249 25% 18%;
+    --muted-foreground: 316 30% 70%;
+
+    --accent-color: 253 29% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 79% 70%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success-color: 170 77% 56%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 220 35% 20%;
+    --input: 220 35% 20%;
+    --ring: 174 88% 44%;
+
+    --sidebar-background: 220 45% 8%;
+    --sidebar-foreground: 220 33% 95%;
+    --sidebar-primary: 174 88% 44%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 40% 12%;
+    --sidebar-accent-foreground: 220 33% 95%;
+    --sidebar-border: 220 35% 15%;
+    --sidebar-ring: 174 88% 44%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+
+  /* Custom Animation Classes */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: var(--gradient-primary);
+    border-radius: inherit;
+    mask: linear-gradient(#e1dede 0 0) content-box, linear-gradient(#d3d1d1 0 0);
+    mask-composite: subtract;
+  }
+}
+
+@layer utilities {
+  .glass-morphism {
+    backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(14, 210, 194, 0.3);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(90, 61, 255, 0.5);
+  }
+}
