@@ -7,7 +7,7 @@ import { dirname } from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-export default defineConfig(({ mode }: { mode: string }) => ({
+export default defineConfig(({ mode }) => ({
   server: {
     host: "0.0.0.0",
     port: 8080,
@@ -18,4 +18,5 @@ export default defineConfig(({ mode }: { mode: string }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  base: "/Style-shop/",   
 }));
